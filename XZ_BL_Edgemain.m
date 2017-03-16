@@ -4,7 +4,6 @@
 % Author: Xinxin Zhang
 % Author: Baihan Lin
 
-
 % Edge enhancement main
 
 % find the edges using canny/sober operator
@@ -12,6 +11,8 @@
 clear all; close all; clc;
 
 I = imread('bicycle_kick.jpg');
+Imos8 = imread('bk_mosaic8.png');
+
 [imageW, imageH, Dim] = size(I);
 r = I(:,:,1);
 g = I(:,:,2);

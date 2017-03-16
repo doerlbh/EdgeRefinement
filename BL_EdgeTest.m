@@ -38,7 +38,7 @@ seg = [ 1 2 2 2 1 1;
 
 key = unique(seg);
 nSeg = length(key);
-
+colorSeg = floor(0:255/nSeg:255);
 
 for n = 1:nSeg
     
