@@ -1,0 +1,8 @@
+% by Baihan Lin
+% Mar 2017
+
+function edge = outEdge(A)
+
+A[1:end-1,:]
+
+end
