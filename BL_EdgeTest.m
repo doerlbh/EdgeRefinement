@@ -1,6 +1,6 @@
 % EdgeTest
-% by Baihan Lin, Baker Lab
-% Mar 2017
+%
+% Author: Baihan Lin
 
 clear all;
 close all;

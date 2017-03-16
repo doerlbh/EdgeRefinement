@@ -1,5 +1,6 @@
-% by Baihan Lin
-% Mar 2017
+% BL_outEdge
+
+% Author: Baihan Lin
 
 function edge = BL_outEdge(A)
 
