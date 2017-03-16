@@ -17,7 +17,7 @@ A = [ 1 2 2 2 1 1;
       1 3 4 2 1 1;
       1 2 2 3 1 1];
   
-edge = outEdge(A);
+edge = BL_outEdge(A);
 
 % Segmented Images
   

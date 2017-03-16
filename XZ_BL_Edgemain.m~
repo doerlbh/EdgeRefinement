@@ -11,7 +11,7 @@
 clear all; close all; clc;
 
 I = imread('bicycle_kick.jpg');
-Imos = imread('bk_mosaic8.png');
+Imos8 = imread('bk_mosaic8.png');
 
 [imageW, imageH, Dim] = size(I);
 r = I(:,:,1);
@@ -79,9 +79,11 @@ ynum = floor(imageH / tSize);
 
 mos = zeros(xnum, ynum);
 
-rImos = Imos(:,:,1);
-gImos = Imos(:,:,2);
-bImos = Imos(:,:,3);
+key = unique(r);
+nSeg = length(key);
+colorSeg = floor(0:255/nSeg:255);
+
+rImos
 
 for w = 1: imageW
     for h = 1:imageH
@@ -93,22 +95,16 @@ for w = 1: imageW
                 left = 255;
                 right = 0;
             end
-            rImos(floor(w-mod(w, tSize)):w, h) = left;
-            gImos(floor(w-mod(w, tSize)):w, h) = left;
-            bImos(floor(w-mod(w, tSize)):w, h) = left;
-            if (w-mod(w, tSize)+8 < imageW)
-                lineEnd = floor(w-mod(w, tSize)+8);
-            else
-                lineEnd = imageW;
-            end
-            rImos((w+1):lineEnd, h) = right;
-            gImos((w+1):lineEnd, h) = right;
-            bImos((w+1):lineEnd, h) = right;
+            rImos((w-mod(w, tSize)):w, h) = left;
+            gImos((w-mod(w, tSize)):w, h) = left;
+            bImos((w-mod(w, tSize)):w, h) = left;
+            bImos((w+1):(w-mod(w, tSize)+8), h) = right;
+            bImos((w+1):(w-mod(w, tSize)+8), h) = right;
+            bImos((w+1):(w-mod(w, tSize)+8), h) = right;
             break;
         end;
-    end;
-end;
+    end
+end
 
-ImosFinal = cat(3, rImos, gImos, bImos);
-figure; imshow(ImosFinal);
+
 
