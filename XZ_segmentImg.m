@@ -41,7 +41,7 @@ s1 = size(image,1);
 s2 = size(image,2);
 
 % GET THE BANK OF FILTERS
-F = makeLMfilters;
+F = XZ_makeLMfilters;
 num_filters = size(F, 3);
 
 % Compute the filter responses by convolving your input image with
@@ -64,7 +64,7 @@ responses = abs(responses);
 X = reshape(responses, (s1*s2), num_filters);
 
 % Use my own clustering algorithm
-idx = KMeansClustering(X, k);
+idx = XZ_KMeansClustering(X, k);
 
 % Reshape IDX into an image with same dimensionality as I and return
 % the reshaped index image.

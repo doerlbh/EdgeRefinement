@@ -67,7 +67,7 @@ Iedge = cat(3, redge, gedge, bedge);
 
 % figure; imshow(Iseg);
 % figure; imshow(Iedge);
-
+% 
 greyIseg = rgb2gray(Iseg);
 % figure; imshow(greyIseg);
 
