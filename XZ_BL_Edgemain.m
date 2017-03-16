@@ -65,51 +65,51 @@ gedge = BL_outEdge(g);
 bedge = BL_outEdge(b);
 Iedge = cat(3, redge, gedge, bedge);
 
-% figure; imshow(Iseg);
+figure; imshow(Iseg);
 % figure; imshow(Iedge);
+% % 
+% greyIseg = rgb2gray(Iseg);
+% % figure; imshow(greyIseg);
 % 
-greyIseg = rgb2gray(Iseg);
-% figure; imshow(greyIseg);
-
-edge = BL_outEdge(greyIseg);
-
-tSize = 8;
-xnum = floor(imageW / tSize);
-ynum = floor(imageH / tSize);
-
-mos = zeros(xnum, ynum);
-
-rImos = Imos(:,:,1);
-gImos = Imos(:,:,2);
-bImos = Imos(:,:,3);
-
-for w = 1: imageW
-    for h = 1:imageH
-        if (edge(w,h) == 1 && mod(w, tSize) ~= 0)
-            if (greyIseg(w-1,h) == 0)
-                left = 0;
-                right = 255;
-            else
-                left = 255;
-                right = 0;
-            end
-            lineStart = floor(w-mod(w, tSize))+1;
-            rImos(lineStart:w, h) = left;
-            gImos(lineStart:w, h) = left;
-            bImos(lineStart:w, h) = left;
-            if (w-mod(w, tSize)+8 < imageW)
-                lineEnd = floor(w-mod(w, tSize)+8);
-            else
-                lineEnd = imageW;
-            end
-            rImos((w+1):lineEnd, h) = right;
-            gImos((w+1):lineEnd, h) = right;
-            bImos((w+1):lineEnd, h) = right;
-            break;
-        end;
-    end;
-end;
-
-ImosFinal = cat(3, rImos, gImos, bImos);
-figure; imshow(ImosFinal);
-
+% edge = BL_outEdge(greyIseg);
+% 
+% tSize = 8;
+% xnum = floor(imageW / tSize);
+% ynum = floor(imageH / tSize);
+% 
+% mos = zeros(xnum, ynum);
+% 
+% rImos = Imos(:,:,1);
+% gImos = Imos(:,:,2);
+% bImos = Imos(:,:,3);
+% 
+% for w = 1: imageW
+%     for h = 1:imageH
+%         if (edge(w,h) == 1 && mod(w, tSize) ~= 0)
+%             if (greyIseg(w-1,h) == 0)
+%                 left = 0;
+%                 right = 255;
+%             else
+%                 left = 255;
+%                 right = 0;
+%             end
+%             lineStart = floor(w-mod(w, tSize))+1;
+%             rImos(lineStart:w, h) = left;
+%             gImos(lineStart:w, h) = left;
+%             bImos(lineStart:w, h) = left;
+%             if (w-mod(w, tSize)+8 < imageW)
+%                 lineEnd = floor(w-mod(w, tSize)+8);
+%             else
+%                 lineEnd = imageW;
+%             end
+%             rImos((w+1):lineEnd, h) = right;
+%             gImos((w+1):lineEnd, h) = right;
+%             bImos((w+1):lineEnd, h) = right;
+%             break;
+%         end;
+%     end;
+% end;
+% 
+% ImosFinal = cat(3, rImos, gImos, bImos);
+% figure; imshow(ImosFinal);
+% 
