@@ -93,9 +93,10 @@ for w = 1: imageW
                 left = 255;
                 right = 0;
             end
-            rImos(floor(w-mod(w, tSize)):w, h) = left;
-            gImos(floor(w-mod(w, tSize)):w, h) = left;
-            bImos(floor(w-mod(w, tSize)):w, h) = left;
+            lineStart = floor(w-mod(w, tSize))+1;
+            rImos(lineStart:w, h) = left;
+            gImos(lineStart:w, h) = left;
+            bImos(lineStart:w, h) = left;
             if (w-mod(w, tSize)+8 < imageW)
                 lineEnd = floor(w-mod(w, tSize)+8);
             else
